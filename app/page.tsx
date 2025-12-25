@@ -1,59 +1,239 @@
-"use client"; 
+"use client";
 
-import { useState, useEffect } from "react";
-import CatButton from "@/components/CatButton";
-import CatCard from "@/components/CatCard";
-import CatIcon from "@/components/CatIcon";
-
-type CatTheme = "tuxedo" | "ginger" | "tabby" | "calico" | "blackcat";
-
-export default function App() {
-  const [theme, setTheme] = useState<CatTheme>("tuxedo");
-
-  // Apply CSS variables to <body> whenever theme changes
-  useEffect(() => {
-    const root = document.documentElement;
-
-    const themeColors: Record<CatTheme, { background: string; foreground: string; primary: string }> = {
-      tuxedo: { background: "#f5f5f5", foreground: "#1a1a1a", primary: "#000000" },
-      ginger: { background: "#fff3e0", foreground: "#4b2e05", primary: "#f97316" },
-      tabby: { background: "#fff7e6", foreground: "#4a2e1e", primary: "#facc15" },
-      calico: { background: "#fffaf0", foreground: "#663300", primary: "#f97316" },
-      blackcat: { background: "#1a1a1a", foreground: "#f5f5f5", primary: "#000000" },
-    };
-
-    const colors = themeColors[theme];
-    root.style.setProperty("--background", colors.background);
-    root.style.setProperty("--foreground", colors.foreground);
-    root.style.setProperty("--primary", colors.primary);
-  }, [theme]);
-
+export default function Page() {
   return (
-    <div className="p-8 space-y-6">
-      <h1 className="text-3xl font-bold">Cat-Themed UI</h1>
+    <main className="min-h-screen p-6 space-y-12 bg-base-100 text-base-content">
+      {/* Header */}
+      <section className="text-center space-y-2">
+        <h1 className="text-4xl font-bold">
+          COZY UI Libraby
+        </h1>
+      </section>
 
-      {/* Theme Buttons */}
-      <div className="space-x-4">
-        {(["tuxedo", "ginger", "tabby", "calico", "blackcat"] as CatTheme[]).map((cat) => (
-          <CatButton key={cat} type={cat} onClick={() => setTheme(cat)}>
-            {cat.charAt(0).toUpperCase() + cat.slice(1)}
-          </CatButton>
-        ))}
-      </div>
+      {/* Buttons */}
+      <section className="space-y-4">
+        <h2 className="text-2xl font-semibold">Buttons</h2>
+        <div className="flex flex-wrap gap-3">
+          <button className="btn btn-primary">Primary</button>
+          <button className="btn btn-secondary">Secondary</button>
+          <button className="btn btn-accent">Accent</button>
+          <button className="btn btn-outline">Outline</button>
+          <button className="btn btn-ghost">Ghost</button>
+          <button className="btn btn-link">Link</button>
+        </div>
+      </section>
 
-      {/* Example Card */}
-      <CatCard type={theme} title={`${theme.charAt(0).toUpperCase() + theme.slice(1)} Card`}>
-        This card changes color based on the selected cat theme.
-      </CatCard>
+      {/* Badges */}
+      <section className="space-y-4">
+        <h2 className="text-2xl font-semibold">Badges</h2>
+        <div className="flex gap-3 flex-wrap">
+          <span className="badge">Default</span>
+          <span className="badge badge-primary">Primary</span>
+          <span className="badge badge-secondary">Secondary</span>
+          <span className="badge badge-success">Success</span>
+          <span className="badge badge-warning">Warning</span>
+          <span className="badge badge-error">Error</span>
+        </div>
+      </section>
 
-      {/* Example Icons */}
-      <div className="flex space-x-4 text-3xl">
-        <CatIcon type="tuxedo" />
-        <CatIcon type="ginger" />
-        <CatIcon type="tabby" />
-        <CatIcon type="calico" />
-        <CatIcon type="blackcat" />
-      </div>
-    </div>
+      {/* Alerts */}
+      <section className="space-y-4">
+        <h2 className="text-2xl font-semibold">Alerts</h2>
+        <div className="space-y-2 max-w-lg">
+          <div className="alert alert-info">Info alert</div>
+          <div className="alert alert-success">Success alert</div>
+          <div className="alert alert-warning">Warning alert</div>
+          <div className="alert alert-error">Error alert</div>
+        </div>
+      </section>
+
+      {/* Cards */}
+      <section className="space-y-4">
+        <h2 className="text-2xl font-semibold">Cards</h2>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="card bg-base-200 shadow">
+            <div className="card-body">
+              <h3 className="card-title">Cute Card 🐱</h3>
+              <p>Cards adapt automatically to the theme.</p>
+              <div className="card-actions justify-end">
+                <button className="btn btn-primary btn-sm">Action</button>
+              </div>
+            </div>
+          </div>
+
+          <div className="card bg-base-200 shadow">
+            <figure className="px-6 pt-6">
+              <div className="h-24 w-full rounded bg-base-300" />
+            </figure>
+            <div className="card-body">
+              <h3 className="card-title">Image Card</h3>
+              <p>Placeholder image area</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Accordion */}
+      <section className="space-y-4">
+        <h2 className="text-2xl font-semibold">Accordion</h2>
+        <div className="space-y-2 max-w-xl">
+          <div className="collapse collapse-arrow bg-base-200">
+            <input type="radio" name="accordion" defaultChecked />
+            <div className="collapse-title font-medium">
+              What is DaisyUI?
+            </div>
+            <div className="collapse-content">
+              <p>Component library built on Tailwind CSS.</p>
+            </div>
+          </div>
+
+          <div className="collapse collapse-arrow bg-base-200">
+            <input type="radio" name="accordion" />
+            <div className="collapse-title font-medium">
+              Why themes?
+            </div>
+            <div className="collapse-content">
+              <p>Instant visual changes without rewriting components.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Forms */}
+      <section className="space-y-4">
+        <h2 className="text-2xl font-semibold">Form Elements</h2>
+        <div className="grid gap-4 max-w-md">
+          <input
+            className="input input-bordered"
+            placeholder="Text input"
+          />
+
+          <select className="select select-bordered" defaultValue="">
+            <option value="" disabled>
+              Select option
+            </option>
+            <option>Option 1</option>
+            <option>Option 2</option>
+          </select>
+
+          <textarea
+            className="textarea textarea-bordered"
+            placeholder="Textarea"
+          />
+
+          <label className="label cursor-pointer gap-3">
+            <span className="label-text">Toggle</span>
+            <input type="checkbox" className="toggle toggle-primary" />
+          </label>
+
+          <label className="label cursor-pointer gap-3">
+            <span className="label-text">Checkbox</span>
+            <input type="checkbox" className="checkbox checkbox-primary" />
+          </label>
+
+          <label className="label cursor-pointer gap-3">
+            <span className="label-text">Radio</span>
+            <input type="radio" className="radio radio-primary" />
+          </label>
+        </div>
+      </section>
+
+      {/* Slider */}
+      <section className="space-y-4">
+        <h2 className="text-2xl font-semibold">Slider</h2>
+        <input
+          type="range"
+          min={0}
+          max={100}
+          className="range range-primary max-w-md"
+        />
+      </section>
+
+      {/* Tabs */}
+      <section className="space-y-4">
+        <h2 className="text-2xl font-semibold">Tabs</h2>
+        <div role="tablist" className="tabs tabs-boxed">
+          <a role="tab" className="tab tab-active">Tab 1</a>
+          <a role="tab" className="tab">Tab 2</a>
+          <a role="tab" className="tab">Tab 3</a>
+        </div>
+      </section>
+
+      {/* Stats */}
+      <section className="space-y-4">
+        <h2 className="text-2xl font-semibold">Stats</h2>
+        <div className="stats shadow">
+          <div className="stat">
+            <div className="stat-title">Downloads</div>
+            <div className="stat-value">31K</div>
+            <div className="stat-desc">↗︎ 400 (22%)</div>
+          </div>
+          <div className="stat">
+            <div className="stat-title">Users</div>
+            <div className="stat-value">4,200</div>
+            <div className="stat-desc">↗︎ 12%</div>
+          </div>
+        </div>
+      </section>
+
+      {/* Table */}
+      <section className="space-y-4">
+        <h2 className="text-2xl font-semibold">Table</h2>
+        <div className="overflow-x-auto max-w-xl">
+          <table className="table table-zebra">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>1</th>
+                <td>Mochi</td>
+                <td><span className="badge badge-success">Active</span></td>
+              </tr>
+              <tr>
+                <th>2</th>
+                <td>Latte</td>
+                <td><span className="badge badge-warning">Idle</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      {/* Modal */}
+      <section className="space-y-4">
+        <h2 className="text-2xl font-semibold">Modal</h2>
+
+        <button
+          className="btn btn-primary"
+          onClick={() =>
+            (document.getElementById("demo-modal") as HTMLDialogElement)?.showModal()
+          }
+        >
+          Open Modal
+        </button>
+
+        <dialog id="demo-modal" className="modal">
+          <div className="modal-box">
+            <h3 className="font-bold text-lg">Hello 🐾</h3>
+            <p className="py-4">This modal follows the active theme.</p>
+            <div className="modal-action">
+              <form method="dialog">
+                <button className="btn">Close</button>
+              </form>
+            </div>
+          </div>
+        </dialog>
+      </section>
+
+      {/* Footer */}
+      <footer className="text-center opacity-60 pt-10">
+        Made with 💖 using Tailwind & DaisyUI
+      </footer>
+    </main>
   );
 }
