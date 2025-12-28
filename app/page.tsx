@@ -1,42 +1,57 @@
-import { Accordion } from "@/ui/components/accordion"
-import "@/ui/styles/index.css"
-import OrangeCatAccordion from "@/ui/components/accordion/OrangeCatAccordion"
+"use client"
 
-export default function Page(): JSX.Element {
+import { motion } from "framer-motion"
+import { CatAccordion } from "../ui/components/accordion/CatAccordion"
+import { CatIcon } from "../ui/components/icons/CatIcon"
+
+
+export default function Page() {
   return (
-    <main className="min-h-screen bg-amber-50 flex items-center justify-center p-6">
-      <div className="space-y-6 w-full max-w-md">
-        <Accordion
-          title="The Big Stretch"
-          personality="orange"
-        >
-          <p>
-            The orange cat wakes up, stretches way too far,
-            wobbles a bit, and somehow acts like it meant to do that.
-          </p>
-        </Accordion>
+    <main className="min-h-screen bg-gradient-to-br from-orange-50 to-amber-100 flex flex-col items-center justify-center px-4">
+      
+      {/* Page Header */}
+      <motion.header
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="text-center mb-10"
+      >
+        <div className="flex justify-center gap-4 mb-4">
+          <CatIcon state="sleep" />
+          <CatIcon state="awake" />
+          <CatIcon state="stretch" />
+        </div>
 
-        <Accordion
-          title="Silent Judgment"
-          personality="black-cat"
-        >
-          <p>
-            This accordion opens quietly and judges your
-            life choices without saying a word.
-          </p>
-        </Accordion>
+        <h1 className="text-3xl font-bold text-orange-700">
+          Orange Cat UI Components 🐈
+        </h1>
 
-        <Accordion
-          title="Nap Time"
-          personality="sleepy"
-        >
-          <p>
-            It might open… or it might just stay cozy.
-            Nobody knows.
-          </p>
-        </Accordion>
+        <p className="text-orange-600 mt-2">
+          An animated accordion inspired by orange cat behavior
+        </p>
+      </motion.header>
 
-      </div>
+      {/* Accordion Section */}
+      <motion.section
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 0.2 }}
+        className="w-full flex justify-center"
+      >
+        <CatAccordion />
+      </motion.section>
+
+      {/* Footer Icons */}
+      <motion.footer
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.5 }}
+        className="mt-12 flex gap-6 text-orange-400"
+      >
+        <motion.span whileHover={{ scale: 1.2, rotate: -10 }}>🐾</motion.span>
+        <motion.span whileHover={{ scale: 1.2, rotate: 10 }}>😺</motion.span>
+        <motion.span whileHover={{ scale: 1.2, rotate: -10 }}>🍊</motion.span>
+      </motion.footer>
     </main>
   )
 }

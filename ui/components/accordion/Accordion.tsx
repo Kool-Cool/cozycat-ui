@@ -3,6 +3,7 @@
 import { FC, useState } from "react"
 import { AccordionProps } from "./accordion.types"
 import { accordionPersonalityMap } from "./accordion.variants"
+import { CatIcon } from "../icons/CatIcon"
 
 export const Accordion: FC<AccordionProps> = ({
   title,
@@ -36,7 +37,8 @@ export const Accordion: FC<AccordionProps> = ({
           </>
         )}
 
-        🐈 {title}
+        <CatIcon className="w-5 h-5 mr-2 text-red-700" /> 
+        {title}
       </button>
 
       {/* Body */}
