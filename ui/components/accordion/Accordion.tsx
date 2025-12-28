@@ -37,7 +37,7 @@ export const Accordion: FC<AccordionProps> = ({
           </>
         )}
 
-        <CatIcon className="w-5 h-5 mr-2 text-red-700" /> 
+        {/* <CatIcon className="w-5 h-5 mr-2 text-red-700" />  */}
         {title}
       </button>
 
