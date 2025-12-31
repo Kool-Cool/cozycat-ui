@@ -119,3 +119,5 @@ MIT License. See `LICENSE` for details.
 > “Build interfaces that feel like a warm cup of tea and a purring cat.”
 > CozyCat UI — gentle, playful, and full of charm 🐱✨
 
+Daily Progress/Blog : https://www.notion.so/Building-on-Own-Component-Library-2da85ad742c580f7a3b9f614502258a1?source=copy_link
+
