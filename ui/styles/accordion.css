@@ -1,0 +1,114 @@
+/* === Accordion Container === */
+.accordion {
+    background-color: #FFF3E0;
+    border: 2px solid #E0CBB5;
+    border-radius: 16px;
+    margin: 1.5rem 0;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    position: relative;
+  }
+  
+  .accordion.open {
+    box-shadow: 0 6px 16px rgba(255, 140, 66, 0.25);
+  }
+  
+  /* === Header === */
+  .accordion-header {
+    position: relative;
+    padding: 1rem 1.5rem;
+    background: #FFE6CC;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .accordion-title {
+    font-size: 1.2rem;
+    color: #5C4033;
+    font-weight: 600;
+  }
+  
+  /* === Yarn in Header (Top Right) === */
+  .yarn-wrapper {
+    position: absolute;
+    top: 0.8rem;
+    right: 1rem;
+  }
+  
+  .yarn {
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+  
+  .yarn.active {
+    transform: rotate(720deg) translateX(-6px);
+  }
+  
+  /* === Cat Pop Animation === */
+  .cat-wrapper {
+    position: absolute;
+    right: 3.5rem;
+    bottom: 0;
+    z-index: 2;
+  }
+  
+  .cat {
+    animation: catPop 1s ease forwards;
+  }
+  
+  @keyframes catPop {
+    0% {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    60% {
+      transform: translateY(-10%);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  /* === Accordion Body === */
+  .accordion-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.6s ease, opacity 0.3s ease;
+    opacity: 0;
+    background-color: #FFF3E0;
+    position: relative;
+  }
+  
+  .accordion-body.show {
+    max-height: 600px;
+    opacity: 1;
+    padding-bottom: 1rem;
+  }
+  
+  .accordion-content {
+    position: relative;
+    padding: 1rem 1.5rem;
+    color: #5C4033;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  
+  /* === Yarn Scrolls with Content === */
+  .yarn-scroll {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+    animation: yarnScroll 3s ease-in-out infinite alternate;
+  }
+  
+  @keyframes yarnScroll {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-12px);
+    }
+  }
+  
