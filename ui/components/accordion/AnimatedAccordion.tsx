@@ -11,27 +11,26 @@ interface AnimatedAccordionProps {
 const AnimatedAccordion: React.FC<AnimatedAccordionProps> = ({ title, children }) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleAccordion = () => setIsOpen((prev) => !prev);
-
   return (
     <div className={`accordion ${isOpen ? "open" : ""}`}>
-      <div className="accordion-header" onClick={toggleAccordion}>
+      <div
+        className="accordion-header"
+        onClick={() => setIsOpen((p) => !p)}
+      >
         <h3 className="accordion-title">{title}</h3>
 
-        {/* Cat peeking near yarn */}
-        {isOpen && (
-          <div className="cat-wrapper">
-            <Image
-              src="/assets/cat.png"
-              alt="Cat"
-              width={80}
-              height={80}
-              className="cat"
-            />
-          </div>
-        )}
+        {/* 🐱 Cat (always rendered) */}
+        <div className="cat-wrapper">
+          <Image
+            src="/assets/cat.png"
+            alt="Cat"
+            width={80}
+            height={80}
+            className={`cat ${isOpen ? "open" : ""}`}
+          />
+        </div>
 
-        {/* Yarn top-right */}
+        {/* 🧶 Yarn */}
         <div className="yarn-wrapper">
           <Image
             src="/assets/yarn.png"
@@ -46,15 +45,6 @@ const AnimatedAccordion: React.FC<AnimatedAccordionProps> = ({ title, children }
       <div className={`accordion-body ${isOpen ? "show" : ""}`}>
         <div className="accordion-content">
           {children}
-          {/* Floating yarn inside body */}
-          <div className="yarn-scroll">
-            <Image
-              src="/assets/yarn.png"
-              alt="Scrolling Yarn"
-              width={28}
-              height={28}
-            />
-          </div>
         </div>
       </div>
     </div>
