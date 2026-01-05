@@ -1,123 +1,36 @@
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-# CozyCat UI 🐱✨
+## Getting Started
 
-**CozyCat UI** is a **cozy, anime-inspired React UI library** designed for developers who love **soft, friendly, and playful interfaces**.  
-Built with **Next.js, React, and Tailwind CSS**, CozyCat UI provides **copy-pasteable components** with gentle animations, pastel colors, and a cat-themed aesthetic.
-
----
-
-## 🌸 Features
-
-- 🐾 **Cute and cozy design** – soft colors, rounded corners, playful animations  
-- 💻 **React + Tailwind ready** – copy-pasteable components for your projects  
-- 🎨 **Themeable** – switch between cat café, pastel anime, or night cozy themes  
-- 📄 **Docs with live previews** – see and copy code instantly  
-- ♿ **Accessible** – built on Radix UI primitives  
-
----
-
-## 🛠️ Installation
-
-Since CozyCat UI follows a **copy-paste model**, just copy the component you need from the repo:
+First, run the development server:
 
 ```bash
-# Copy the Button component
-cp packages/ui/button.tsx your-project/components/
-````
-
-Or import components if you publish as a package later:
-
-```tsx
-import { Button } from "cozycat-ui"
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
----
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## 🎨 Themes
+You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
-CozyCat UI supports multiple cozy themes using CSS variables. Example:
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-```css
-/* Cat Café Theme */
-.cat-cafe {
-  --background: #fff7f2;
-  --foreground: #2b1a16;
-  --primary: #ffb6b9;
-  --radius: 12px;
-}
-```
+## Learn More
 
-Apply a theme:
+To learn more about Next.js, take a look at the following resources:
 
-```tsx
-<body className="cat-cafe">
-  <Button>Meow!</Button>
-</body>
-```
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
----
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## 🐱 Components (v1.0)
+## Deploy on Vercel
 
-* `Button` – cute buttons with gentle hover effects
-* `Card` – soft, rounded content cards
-* `Input` – friendly text inputs
-* `Badge` – small pastel badges
-* `Avatar` – cat-inspired avatar placeholders
-* `Modal` – cozy modal windows
-* `Tabs` – pastel tab navigation
-* `Tooltip` – cute hover tooltips
-* `Navbar` – soft navigation bar
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Each component includes **copy buttons in the docs** for easy use.
-
----
-
-## 📖 Usage Example
-
-```tsx
-import { Button } from "@/components/button"
-
-export default function Home() {
-  return (
-    <main className="cat-cafe p-8 space-y-4">
-      <h1 className="text-2xl font-bold">Welcome to CozyCat UI</h1>
-      <Button>Click Me!</Button>
-    </main>
-  )
-}
-```
-
----
-
-## 🚀 Roadmap
-
-* Add more **cat & anime-themed components**
-* Create a **theme switcher** for live previews
-* Publish a **NPM package** for easier installation
-* Add **animation presets** (floating stars, blinking cats)
-* Community contributions: themes, components, icons
-
----
-
-## ❤️ Contributing
-
-Contributions are welcome! 🐾
-
-* Fork the repo
-* Create your feature branch
-* Submit a pull request
-
----
-
-## 📜 License
-
-MIT License. See `LICENSE` for details.
-
----
-
-> “Build interfaces that feel like a warm cup of tea and a purring cat.”
-> CozyCat UI — gentle, playful, and full of charm 🐱✨
-
-Daily Progress/Blog : https://www.notion.so/Building-on-Own-Component-Library-2da85ad742c580f7a3b9f614502258a1?source=copy_link
-
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
