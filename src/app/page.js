@@ -1,7 +1,13 @@
+"use client";
+
 import {
   CozyAccordion,
   CozyAccordionItem,
 } from "@/components/cozy/accordion";
+
+
+import React from "react";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 export default function Page() {
   return (
@@ -10,19 +16,16 @@ export default function Page() {
         <h1 className="mb-6 text-3xl font-bold text-text-primary">
           Orange Cat FAQ 🐱
         </h1>
-
+        <DotLottieReact
+          src="https://lottie.host/f60b6c21-da35-4190-a9d5-d83585039c5d/LVjDosE3ag.lottie"
+          stateMachineId="StateMachine1"
+        />
         <CozyAccordion>
-          <CozyAccordionItem
-            value="item-1"
-            title="What is CozyCat?"
-          >
+          <CozyAccordionItem value="item-1" title="What is CozyCat?">
             CozyCat is a cozy component library built on shadcn/ui.
           </CozyAccordionItem>
 
-          <CozyAccordionItem
-            value="item-2"
-            title="Why JSX?"
-          >
+          <CozyAccordionItem value="item-2" title="Why JSX?">
             JSX keeps things simple and approachable.
           </CozyAccordionItem>
         </CozyAccordion>
